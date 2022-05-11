@@ -44,7 +44,6 @@ function dropdownFirstLetterSearcher () {
     const dogbreedlist = document.getElementById('dog-breeds').childNodes
     for (let i = 0; i < dogbreedlist.length; i++) {
         if (dogbreedlist[i].textContent[0] === document.querySelector('#breed-dropdown').value) {
-            console.log(i)
             dogbreedlist[i].hidden = false
         } else {
             dogbreedlist[i].hidden = true
@@ -54,11 +53,11 @@ function dropdownFirstLetterSearcher () {
 
 //Event listeners
 
-window.addEventListener('DOMContentLoaded', dogPicFetcher)
-
-document.addEventListener('DOMContentLoaded', dogBreedNameFetcher)
-
-document.getElementById('breed-dropdown').addEventListener('onchange', dropdownFirstLetterSearcher)
+document.addEventListener('DOMContentLoaded', () => {
+    dogPicFetcher()
+    dogBreedNameFetcher()
+    document.getElementById('breed-dropdown').addEventListener('change', dropdownFirstLetterSearcher)
+})
 
 
 
